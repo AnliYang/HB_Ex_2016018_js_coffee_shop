@@ -54,14 +54,18 @@
 
     function makeCoffee() {
         myImage.setAttribute("src", "static/coffee_mug.jpg");
+        setTimeout(function() { myImage.setAttribute("src", "static/coffee_machine.jpg");}, 500);
+        setTimeout(function() { myImage.setAttribute("src", "static/coffee_beans.jpg");}, 1500);
+        console.dir(myImage)
     }
 
-    function startTimer() {
-        setTimeout(makeCoffee, 500);
-        console.log('hi cutie')
-    }
+    // our version works just fine!
+    myImage.addEventListener('click', makeCoffee);
 
-    myImage.addEventListener('click', startTimer);
+    // why is this necessary???
+    // myImage.addEventListener('click', function () {
+    //     return makeCoffee();
+    // });
 
     // doesn't work because setTimout returns a value, which seems to be an id of some sort
     // myImage.addEventListener('click', setTimeout(makeCoffee, 1000));
